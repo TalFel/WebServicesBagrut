@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAllProducts">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllProductsResult" type="tns:ArrayOfProductWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProductWS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductWS" nillable="true" type="tns:ProductWS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductWS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TheCategory" type="tns:CategoryWS" />
+          <s:element minOccurs="0" maxOccurs="1" name="TheColor" type="tns:ColorWS" />
+          <s:element minOccurs="0" maxOccurs="1" name="TheSize" type="tns:SizeWS" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCatColSzeString" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CategoryWS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryImageLink" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryActive" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ColorWS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ColorID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColorName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SizeWS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SizeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SizeName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProductsConditioned">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="empty" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductsConditionedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductsConditionedResult" type="tns:ArrayOfProductWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="product" type="tns:ProductWS" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAmountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNewUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="tns:CategoryWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCategories">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCategoriesResult" type="tns:ArrayOfCategoryWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategoryWS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CategoryWS" nillable="true" type="tns:CategoryWS" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllCategoriesConditioned">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCategoriesConditionedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCategoriesConditionedResult" type="tns:ArrayOfCategoryWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetAllProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsConditionedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductsConditioned" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsConditionedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductsConditionedResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAmount" />
+  </wsdl:message>
+  <wsdl:message name="AddAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetNewUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCategories" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCategoriesConditionedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesConditioned" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCategoriesConditionedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesConditionedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicesSoap">
+    <wsdl:operation name="GetAllProducts">
+      <wsdl:input message="tns:GetAllProductsSoapIn" />
+      <wsdl:output message="tns:GetAllProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsConditioned">
+      <wsdl:input message="tns:GetProductsConditionedSoapIn" />
+      <wsdl:output message="tns:GetProductsConditionedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAmount">
+      <wsdl:input message="tns:AddAmountSoapIn" />
+      <wsdl:output message="tns:AddAmountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewUrl">
+      <wsdl:input message="tns:GetNewUrlSoapIn" />
+      <wsdl:output message="tns:GetNewUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <wsdl:input message="tns:GetAllCategoriesSoapIn" />
+      <wsdl:output message="tns:GetAllCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoriesConditioned">
+      <wsdl:input message="tns:GetAllCategoriesConditionedSoapIn" />
+      <wsdl:output message="tns:GetAllCategoriesConditionedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicesSoap" type="tns:WebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllProducts">
+      <soap:operation soapAction="http://tempuri.org/GetAllProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsConditioned">
+      <soap:operation soapAction="http://tempuri.org/GetProductsConditioned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAmount">
+      <soap:operation soapAction="http://tempuri.org/AddAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewUrl">
+      <soap:operation soapAction="http://tempuri.org/GetNewUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <soap:operation soapAction="http://tempuri.org/GetAllCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoriesConditioned">
+      <soap:operation soapAction="http://tempuri.org/GetAllCategoriesConditioned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicesSoap12" type="tns:WebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllProducts">
+      <soap12:operation soapAction="http://tempuri.org/GetAllProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsConditioned">
+      <soap12:operation soapAction="http://tempuri.org/GetProductsConditioned" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAmount">
+      <soap12:operation soapAction="http://tempuri.org/AddAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewUrl">
+      <soap12:operation soapAction="http://tempuri.org/GetNewUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategoriesConditioned">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCategoriesConditioned" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServices">
+    <wsdl:port name="WebServicesSoap" binding="tns:WebServicesSoap">
+      <soap:address location="https://localhost:44302/WebServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicesSoap12" binding="tns:WebServicesSoap12">
+      <soap12:address location="https://localhost:44302/WebServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
