@@ -1,0 +1,3 @@
+A big project in .NET or the 5 units bagrut in web services.
+One big project with access database, and another smaller one that use the web srvices from the first.
+!Not completed yet!

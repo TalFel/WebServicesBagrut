@@ -1,0 +1,48 @@
+﻿.DataList {
+    text-align: center;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.DataImage {
+    max-width: 220px;
+    aspect-ratio: 1/1;
+}
+.h4{
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 25px;
+    text-align: center;
+}
+.arrowButton {
+    outline: none;
+    background-color: none;
+    border-width: 0px;
+    color: none;
+    background-color: none;
+    font-size: 20px;
+    text-align: center;
+}
+.ItemsList {
+    background-color: rgba(255,255,255,0.60);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 5px 5px;
+    margin-top: 5%;
+    margin: 5px;
+    width: 250px;
+}
+.goBack {
+    border-radius: 50%;
+    border-width: 0px;
+    font-size: 15px;
+    background-color: #f1f1f1;
+    color: black;
+    padding: 8px 14px;
+    float: left;
+    text-align: left;
+}
+.goBack:hover {
+    background-color: #ddd;
+}
